@@ -1,0 +1,9 @@
+plugins {
+    id 'java-library'
+    id 'io.micronaut.internal.jflex'
+}
+
+tasks.reiginster("generateLexer", JFlexTask) {
+    sourceDirectory.set(layout.projectDirectory.dir('src/main/jflex'))
+    outputDirectory.set(layout.buildDirectory.dir('generated/jflex'))
+}
