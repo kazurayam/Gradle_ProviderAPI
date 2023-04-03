@@ -37,6 +37,18 @@ public class JFlexPlugin implements Plugin<Project> {
                 });
 
         // Register the output of the JFlex task as generated sources
+        /*
+            This says "please add the output of the generateLexer task as a source directory".
+        The magic is that because the generateLexer task defines an output directory,
+        now we just said that this output directory contains java classes.
+        And any task which requires Java sources will automatically trigger the execution of our generateLexer task:
+        we don't have to define the relationship explicitly.
+            In other words, because the input of the Java compilation task is a source set,
+        and that source set defines that as an input, it has a directory which is generated
+        by the generateLexer task, Gradle knows that before compiling,
+        it needs to call that generateLexer task. Any other task using the source sets as an input
+        will do the same: it avoids duplication of code and hard-wiring.
+         */
         javaExt.getSourceSets()
                 .getByName(SourceSet.MAIN_SOURCE_SET_NAME)
                 .getJava()
