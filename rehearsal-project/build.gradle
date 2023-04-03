@@ -3,7 +3,10 @@ plugins {
     id 'io.micronaut.internal.jflex'
 }
 
-tasks.reiginster("generateLexer", JFlexTask) {
+// JFlexPlugin will register the generateLexer task
+/*
+tasks.register("generateLexer", JFlexTask) {
     sourceDirectory.set(layout.projectDirectory.dir('src/main/jflex'))
     outputDirectory.set(layout.buildDirectory.dir('generated/jflex'))
 }
+ */

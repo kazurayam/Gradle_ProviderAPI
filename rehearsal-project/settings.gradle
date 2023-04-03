@@ -1,0 +1,9 @@
+rootProject.name = "rehearsal-project"
+
+includeBuild("../jflex-plugin") {
+    dependencySubstitution {
+        // explicitly load the output of the included build
+        // into the consumer project's classpath
+        substitute(module('io.micronaut.internal:jflex-plugin'))
+    }
+}
