@@ -10,3 +10,15 @@ tasks.register("generateLexer", JFlexTask) {
     outputDirectory.set(layout.buildDirectory.dir('generated/jflex'))
 }
  */
+
+import io.micronaut.internal.greeting.Greeter
+tasks.register("sayHello", Greeter) {
+    intro = "Hello, "
+    user = "kazurayam"
+    outro = "!"
+}
+tasks.register("direBonjour", Greeter) {
+    intro = "Bonjour, "
+    user = "kazurayam"
+    outro = " !"
+}
